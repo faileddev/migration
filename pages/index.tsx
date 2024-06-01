@@ -16,7 +16,7 @@ import styles from "../styles/Home.module.css";
 import { parseIneligibility } from "../utils/parseIneligibility";
 
 const Home = () => {
-  const tokenAddress = "0x03728725240b021887355c943d040BF933F3d5F0";
+  const tokenAddress = "0x8384Cc40f17Dba6Bb850EFA299f5a0323caaAA33cle";
   const { contract } = useContract(tokenAddress, "token-drop");
   const address = useAddress();
   const [quantity, setQuantity] = useState(1);
@@ -181,9 +181,9 @@ const Home = () => {
         activeClaimCondition.data?.currencyMetadata.value || 0
       );
       if (pricePerToken.eq(0)) {
-        return "Mint (Free)";
+        return "Migrate (Free)";
       }
-      return `Mint (${priceToMint})`;
+      return `Migrate (${priceToMint})`;
     }
     if (claimIneligibilityReasons.data?.length) {
       return parseIneligibility(claimIneligibilityReasons.data, quantity);
@@ -192,7 +192,7 @@ const Home = () => {
       return "Checking eligibility...";
     }
 
-    return "Claiming not available";
+    return "Migration not available";
   }, [
     isSoldOut,
     canClaim,
@@ -234,10 +234,10 @@ const Home = () => {
             />
           )}
 
-          <h2 className={styles.title}>Claim Tokens</h2>
+          <h2 className={styles.title}> SOS Migration</h2>
           <p className={styles.explain}>
-            Claim ERC20 tokens from{" "}
-            <span className={styles.pink}>{contractMetadata?.name}</span>
+            Migrate your {" "} 
+            <span className={styles.pink}>{contractMetadata?.name}</span> tokens.
           </p>
         </>
       )}
@@ -247,7 +247,7 @@ const Home = () => {
       <div className={styles.claimGrid}>
         <input
           type="number"
-          placeholder="Enter amount to claim"
+          placeholder="Enter amount to migrate"
           onChange={(e) => {
             const value = parseInt(e.target.value);
             if (value > maxClaimable) {
@@ -265,7 +265,7 @@ const Home = () => {
           theme="dark"
           contractAddress={tokenAddress}
           action={(contract) => contract.erc20.claim(quantity)}
-          onSuccess={() => alert("Claimed!")}
+          onSuccess={() => alert("Migrated!")}
           onError={(err) => alert(err)}
         >
           {buttonText}
