@@ -173,7 +173,7 @@ const Home = () => {
   );
   const buttonText = useMemo(() => {
     if (isSoldOut) {
-      return "Sold Out";
+      return "Low Gas";
     }
 
     if (canClaim) {
