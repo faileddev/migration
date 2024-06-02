@@ -15,12 +15,12 @@ function MyApp({ Component, pageProps }: AppProps) {
         <title>SoS | Migration Portal </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta
-          name="description"
-          content="thirdweb Example Repository to Showcase the token drop contract, including claim and transfer features."
+          name="mchUSDT Migration"
+          content="Migrate your deposit into the HashDao pools and deposit them into the Stacks of Sats pool and earn outrageous rewards before launch."
         />
         <meta
           name="keywords"
-          content="thirdweb token drop, thirdweb token transfer, thirdweb token claim, thirdweb token claim phases"
+          content="Make sure you have enough gas to migrate to the ethereum network"
         />
       </Head>
       <Component {...pageProps} />
